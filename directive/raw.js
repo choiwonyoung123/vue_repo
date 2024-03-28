@@ -7,6 +7,8 @@
 // 불린타입 >> true/false 스타일 토글, 사용사 선택 가능
 // 모델 디렉티브 >> 양방향, input-select-textarea(value속성), 속성표시x, :속성 대신 :프로퍼티
 // 모델 디렉티브 >> 체크박스-라디오박스 다른 형태, checked, value속성 별도 바인딩 필요 :value,
+// obj.name = obj['name']
+// 바인드 디렉티브 >> class 고정 1개 + 바인드 속성 1개 같이 사용 가능
 let template = `
 <div>
     <!-- 텍스트 디렉티브 -->
