@@ -4,6 +4,7 @@
 import MyNameComponent from './components/myName.js';
 import CheckComponent from './components/check.js';
 import RefComponent from './components/ref_parent.js';
+import SlotComponent from './components/slot_parent.js';
 
 // 루트 컴포넌트 만들기
 const { createApp } = Vue
@@ -12,7 +13,8 @@ let template = `
 <div>
     <!--<MyNameComponent/>-->
     <!--<CheckComponent/>-->
-    <RefComponent/>
+    <!--<RefComponent/>-->
+    <SlotComponent/>
 </div>
 `;
 
@@ -21,6 +23,7 @@ createApp({
     components: { // 자식 컴포넌트 정의
         //MyNameComponent,
         //CheckComponent
-        RefComponent
+        //RefComponent
+        SlotComponent
     }
 }).mount('#app'); // html 마운트

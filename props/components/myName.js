@@ -1,8 +1,9 @@
 // myName.js
 
 // 부모 - 자식 간 데이터 및 이벤트 주고받는 방식
-// 부모 >> 자식 = 자식입장 - props['attr'] / 부모입장 - v-bind:attr=""
-// 부모 << 자식 = 자식입장 - $emit('custom-event', data1, ..) / 부모입장 - v-on:custom-event=""
+// 부모 >> 자식 = 자식입장 - props['attr'] / 부모입장 - v-bind:attr="" - :attr=""
+// 부모 << 자식 = 자식입장 - $emit('custom-event', data1, ..) / 부모입장 - v-on:custom-event="" - @:custom-event=""
+// $emit을 이용해 이벤트 전달하는 경우 괄호 사용x
 // props: [] >> 배열 >> 유효성검사x
 // props: {} >> 객체 >> 유효성검사o >> 프로퍼티별 데이터 타입, 필수 여부, 기본값, 유효성검사 정의
 
@@ -37,6 +38,7 @@ export default{
     <div>
         <ChildComponent myName="first"/>
         <ChildComponent v-bind:myName="first" v-on:update-name="getName"/>
+        <ChildComponent :myName="first" @update-name="getName"/>
         <ChildComponent v-bind:myName="second"/>
     </div>
     `,
@@ -49,7 +51,7 @@ export default{
     components: { // 자식 컴포넌트 정의
         ChildComponent
     },
-    methods: {
+    methods: { // 매개변수를 가지지거나 호출하는 형태가 아닌 함수 전체를 넘김
         getName(data, msg){
             console.log(data, msg);
         this.first = data;

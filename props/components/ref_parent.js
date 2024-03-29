@@ -1,6 +1,8 @@
 //ref_parent.js
 import ChildComponent from './ref_child.js';
 // ref >> 이벤트 강제로 발생
+// ref >> 선택자 처럼 특정 태그 찾아가기
+// ref >> mounted 이후 동작
 // ref속성 >> 일반태그 및 자식 컴포넌트 태그에 작성 가능 >> 자식 컴포넌트 태그를 하나의 태그로 인식
 
 let template = `
@@ -17,15 +19,23 @@ let template = `
     <button type="button" @click="executeChildFun">
         Child Method Execute
     </button>
-    <p>{{msg()}}</p>
+    <p>{{msg}}</p>
 </div>
 `;
 
 export default{
     template,
+    data(){ // 프로퍼티
+        return{
+            isMounted: false
+        }
+    },
+    mounted(){ // 마운트 되면 체크 프로퍼티 참 값
+        this.isMounted = true;
+    },
     computed: {
         msg(){
-            return this.$refs.child.msg;
+            return !this.isMounted ? '' : this.$refs.child.msg;
         }
     },
     methods: {
