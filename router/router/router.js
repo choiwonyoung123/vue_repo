@@ -6,6 +6,8 @@
 import HomeComponent from '../views/home.js'; // 컴포넌트 등록
 import PostListComponent from '../views/postList.js';
 import PostInfoComponent from '../views/postInfo.js';
+import UserListComponent from '../views/userList.js';
+import UserInfoComponent from '../views/userInfo.js';
 
 const {createRouter, createWebHistory} = VueRouter // 객체 선언
 
@@ -28,6 +30,16 @@ let routes = [ // 여러개 라우터 정보 등록 >> 배열 형태
         path: '/postInfo', // uri(호출o)
         name: 'postInfo', // 라우터 이름(호출o)
         component: PostInfoComponent // 열어줄 컴포넌트 정보 넘김
+    },
+    {
+        path: '/userList', // uri(호출o)
+        name: 'userList', // 라우터 이름(호출o) >> app.js에서 호출
+        component: UserListComponent // 열어줄 컴포넌트 정보 넘김
+    },
+    {
+        path: '/userInfo', // uri(호출o)
+        name: 'userInfo', // 라우터 이름(호출o) >> app.js에서 호출
+        component: UserInfoComponent // 열어줄 컴포넌트 정보 넘김
     }
 ]
 

@@ -11,8 +11,15 @@ let template = `
 <div>
     <!--<router-link to="/home">home</router-link>-->
     <router-link v-bind:to="{name: 'home'}">home</router-link>
+    <br>
     <router-link v-bind:to="{name: 'postList'}">전체조회</router-link>
+    <br>
     <router-link v-bind:to="{name: 'postInfo'}">단건조회</router-link>
+    <br>
+    <router-link v-bind:to="{name: 'userList'}">유저전체조회</router-link>
+    <br>
+    <router-link v-bind:to="{name: 'userInfo'}">유저단건조회</router-link>
+    <br>
     <!--<router-link v-bind:to="{path: '/home'}">home</router-link>-->
     <!--<a href="/">home</a>-->
     <router-view :key="$route.fullPath" />
